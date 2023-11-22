@@ -13,7 +13,7 @@ namespace Student_Information_System.Models
         public int DepartmentId { get; set; }
         public string DepartmentName { get; set; }
         public List<Student> Students { get; set; }
-        public List<Lecture> Lectures { get; set; }
+        //public List<Lecture> Lectures { get; set; }
         public List<DepartmentLecture> DepartmentLectures { get; set; }
     }
 }

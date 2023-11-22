@@ -15,7 +15,7 @@ namespace Student_Information_System.Models
         public string LastName { get; set; }
         public string Email { get; set; }
         public Department Department { get; set; }
-        public List<Lecture> Lectures { get; set; }
+        //public List<Lecture> Lectures { get; set; }
         public List<StudentLecture> StudentLectures { get; set; }
     }
 }

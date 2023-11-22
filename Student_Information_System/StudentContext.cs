@@ -10,10 +10,10 @@ namespace Student_Information_System
 {
     public class StudentContext : DbContext
     {
-        //public StudentContext(): base()
-        //{
+        public StudentContext() : base()
+        {
 
-        //}
+        }
         public StudentContext(DbContextOptions options) : base(options)
         {
 
@@ -65,7 +65,6 @@ namespace Student_Information_System
             {
                 optionsBuilder.UseSqlServer($"Server=localhost;Database=Student_Information_System;Trusted_Connection=True;TrustServerCertificate=True;");
             }
-
         }
     }
 }
