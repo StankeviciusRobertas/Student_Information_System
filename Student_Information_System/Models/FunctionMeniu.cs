@@ -17,39 +17,56 @@ namespace Student_Information_System.Models
 
         public Department CreateDepartment()
         {
-            Console.WriteLine("Enter the name of the department:");
-            string departmentName = Console.ReadLine();
+            try
+            {
+                Console.WriteLine("Enter the name of the department:");
+                string departmentName = Console.ReadLine();
 
-            Department department = new Department { DepartmentName = departmentName };
-            dbContext.Departments.Add(department);
-            dbContext.SaveChanges();
+                Department department = new Department { DepartmentName = departmentName };
+                dbContext.Departments.Add(department);
+                dbContext.SaveChanges();
 
-            Console.WriteLine($"Department '{departmentName}' created successfully with ID {department.DepartmentId}");
-            Console.WriteLine("Press Enter to proceed");
-            Console.ReadKey();
-            Console.Clear();
-            return department;
+                Console.WriteLine($"Department '{departmentName}' created successfully with ID {department.DepartmentId}");
+                Console.WriteLine("Press Enter to proceed");
+                Console.ReadKey();
+                Console.Clear();
+                return department;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return null;
+            }
         }
         public void AddStudentToDepartment()
         {
-            Console.WriteLine("Enter the details of the student:");
-            Console.Write("First Name: ");
-            string firstName = Console.ReadLine();
-            Console.Write("Last Name: ");
-            string lastName = Console.ReadLine();
-            Console.Write("Email: ");
-            string email = Console.ReadLine();
+            try
+            {
 
-            var department = SelectDepartment();
-            var student = new Student { FirstName = firstName, LastName = lastName, Email = email, Department = department };
 
-            dbContext.Students.Add(student);
-            dbContext.SaveChanges();
+                Console.WriteLine("Enter the details of the student:");
+                Console.Write("First Name: ");
+                string firstName = Console.ReadLine();
+                Console.Write("Last Name: ");
+                string lastName = Console.ReadLine();
+                Console.Write("Email: ");
+                string email = Console.ReadLine();
 
-            Console.WriteLine($"Student '{firstName} {lastName}' added to the department '{department.DepartmentName}'");
-            Console.WriteLine("Press Enter to proceed");
-            Console.ReadKey();
-            Console.Clear();
+                var department = SelectDepartment();
+                var student = new Student { FirstName = firstName, LastName = lastName, Email = email, Department = department };
+
+                dbContext.Students.Add(student);
+                dbContext.SaveChanges();
+
+                Console.WriteLine($"Student '{firstName} {lastName}' added to the department '{department.DepartmentName}'");
+                Console.WriteLine("Press Enter to proceed");
+                Console.ReadKey();
+                Console.Clear();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erorr: {ex.Message}");
+            }
         }
         public void AddLecturesToDepartment()
         {
@@ -114,7 +131,7 @@ namespace Student_Information_System.Models
 
             if (department != null)
             {
-                // Associate the lecture with the selected department
+                // Pridedam paskaita i departamenta per jungiamaja lentele. 
                 var departmentLecture = new DepartmentLecture { Department = department, Lecture = lecture };
                 dbContext.DepartmentLectures.Add(departmentLecture);
             }
