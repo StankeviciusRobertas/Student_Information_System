@@ -11,6 +11,7 @@ namespace Student_Information_System.Models
         public int StudentId { get; set; }
         public int LectureId { get; set; }
 
+        //Tarpine lentele pagal 
         public Student Student { get; set; }
         public Lecture Lecture { get; set; }
     }

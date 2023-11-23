@@ -10,7 +10,10 @@ namespace Student_Information_System.Models
     {
         public int DepartmentId { get; set; }
         public int LectureId { get; set; }
+        //Tarpine lentele pagal
         public Department Department { get; set; }
         public Lecture Lecture { get; set; }
+
+        
     }
 }
